@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="loader-container">
+            <span class="loader1"></span>
+            <div class="loader">
+                <span>Blood❤️Donation</span>
+                <span>Blood❤️Donation</span>
+            </div>
+            <div class="loading">
+                <svg height="48px" width="64px">
+                    <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                  <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                </svg>
+              </div>
+        </div>
+        <div class="navigation-container">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section id="home" class="section">
+            <div class="shine">
+                <h1 style="font-size: 38px;">Welcome to Blood Donation</h1>
+                </div>
+            <h2>"Witness a miracle today, donate blood"</h2>
+            <a href="{{ url_for('find_donors') }}" class="fixed-button find-donors-button">
+                <span class="btn-txt">Find Donors</span>
+                <div class="loading">
+                    <svg height="48px" width="64px">
+                        <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                      <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                    </svg>
+                  </div>
+            </a>
+            <a href="{{ url_for('eligibility') }}" class="fixed-button">
+                <span class="btn-txt">Check Eligibility</span>
+                <div class="loading">
+                    <svg height="48px" width="64px">
+                        <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                      <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                    </svg>
+                  </div>
+            </a>
+        </section>
+        <section id="about" class="section">
+          
+          <form method="post" action="{{ url_for('register_donor') }}" class="form_main">
+            <p class="heading">About Us</p>
+            <p style="color: black;">Welcome to our Blood Donation Website, a platform dedicated to bridging the gap between blood donors and receivers. Our mission is to streamline the process of blood donation, making it easier for those in need to find compatible donors quickly and efficiently. We believe that by leveraging technology, we can create a more connected and responsive community, where life-saving blood donations are just a click away. Our website allows donors to register and manage their donation schedules, ensuring they remain eligible and ready to help when needed. For receivers, we provide a comprehensive database of available blood types, making the search for a match swift and straightforward.
+
+                Blood donation is a vital act that can save countless lives. Every day, individuals around the world rely on the generosity of donors to recover from surgeries, medical treatments, and emergencies. By donating blood, you are giving more than just a part of yourself; you are giving hope, strength, and a second chance at life to those who need it most. Our platform is designed to support and encourage this noble act, creating an organized and user-friendly space for donors and receivers to connect. Together, we can make a significant impact and ensure that no one has to wait for the critical blood they need. Join us in our mission to save lives, one donation at a time.</p>
+        </form>
+                <a href="{{ url_for('find_donors') }}" class="fixed-button find-donors-button">
+                    <span class="btn-txt">Find Donors</span>
+                    <div class="loading">
+                        <svg height="48px" width="64px">
+                            <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                          <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                        </svg>
+                      </div>
+                </a>
+                <a href="{{ url_for('eligibility') }}" class="fixed-button">
+                    <span class="btn-txt">Check Eligibility</span>
+                    <div class="loading">
+                        <svg height="48px" width="64px">
+                            <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                          <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                        </svg>
+                      </div>
+                </a>
+        </section>
+        <!-- <section id="testimonials" class="section">
+            <h1>Testimonials</h1>
+            <p>See what our donors and recipients have to say.</p>
+            <a href="{{ url_for('find_donors') }}" class="fixed-button find-donors-button">
+                <span class="btn-txt">Find Donors</span>
+                <span class="loader1"></span>
+            </a>
+            <a href="{{ url_for('eligibility') }}" class="fixed-button">
+                <span class="btn-txt">Check Eligibility</span>
+                <span class="loader1"></span>
+            </a>
+        </section> -->
+        <section id="contact" class="section">
+            <h1>Contact Us</h1>
+            
+            <a href="{{ url_for('find_donors') }}" class="fixed-button find-donors-button">
+                <span class="btn-txt">Find Donors</span>
+                <div class="loading">
+                    <svg height="48px" width="64px">
+                        <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                      <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                    </svg>
+                  </div>
+            </a>
+            <a href="{{ url_for('eligibility') }}" class="fixed-button">
+                <span class="btn-txt">Check Eligibility</span>
+                <div class="loading">
+                    <svg height="48px" width="64px">
+                        <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                      <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                    </svg>
+                  </div>
+            </a>
+            <div class="tooltip-container">
+                <div class="tooltip">
+                  <div class="profile">
+                    <div class="user">
+                      <div class="img">Fb</div>
+                      <div class="details">
+                        <div class="name">User</div>
+                        <div class="username">@username</div>
+                      </div>
+                    </div>
+                    <div class="about">500+ Friends</div>
+                  </div>
+                </div>
+                <div class="text">
+                  <a class="icon" href="#">
+                    <div class="layer">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span class="facebookSVG">
+                        <svg
+                          viewBox="0 0 40 40"
+                          xml:space="preserve"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <linearGradient
+                            gradientUnits="userSpaceOnUse"
+                            gradientTransform="matrix(40 0 0 -39.7778 11115.001 16212.334)"
+                            y2="407.5726"
+                            y1="406.6018"
+                            x2="-277.375"
+                            x1="-277.375"
+                            id="a"
+                          >
+                            <stop stop-color="#0062e0" offset="0"></stop>
+                            <stop stop-color="#19afff" offset="1"></stop>
+                          </linearGradient>
+                          <path
+                            d="M16.7 39.8C7.2 38.1 0 29.9 0 20 0 9 9 0 20 0s20 9 20 20c0 9.9-7.2 18.1-16.7 19.8l-1.1-.9h-4.4l-1.1.9z"
+                            fill="url(#a)"
+                          ></path>
+                          <path
+                            d="m27.8 25.6.9-5.6h-5.3v-3.9c0-1.6.6-2.8 3-2.8H29V8.2c-1.4-.2-3-.4-4.4-.4-4.6 0-7.8 2.8-7.8 7.8V20h-5v5.6h5v14.1c1.1.2 2.2.3 3.3.3 1.1 0 2.2-.1 3.3-.3V25.6h4.4z"
+                            fill="#fff"
+                          ></path>
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="text">Facebook</div>
+                  </a>
+                </div>
+              </div>
+              <div class="tooltip-container">
+                <div class="tooltip">
+                  <div class="profile">
+                    <div class="user">
+                      <div class="img">Ig</div>
+                      <div class="details">
+                        <div class="name">User</div>
+                        <div class="username">@username</div>
+                      </div>
+                    </div>
+                    <div class="about">500+ Followers</div>
+                  </div>
+                </div>
+                <div class="text">
+                  <a class="icon" href="#">
+                    <div class="layer">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span class="instagramSVG">
+                        <svg
+                          viewBox="0 0 48 48"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill="#f09433"
+                            d="M32.4 2.4H15.6A13.2 13.2 0 0 0 2.4 15.6v16.8A13.2 13.2 0 0 0 15.6 45.6h16.8A13.2 13.2 0 0 0 45.6 32.4V15.6A13.2 13.2 0 0 0 32.4 2.4zm8.4 30A8.4 8.4 0 0 1 32.4 41.2H15.6A8.4 8.4 0 0 1 7.2 32.4V15.6A8.4 8.4 0 0 1 15.6 7.2h16.8A8.4 8.4 0 0 1 40.8 15.6zm-14.4-1.2a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4zm10.8-14.4a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="text">Instagram</div>
+                  </a>
+                </div>
+              </div>
+              <div class="tooltip-container">
+                <div class="tooltip">
+                  <div class="profile">
+                    <div class="user">
+                      <div class="img">Tw</div>
+                      <div class="details">
+                        <div class="name">Blood donation</div>
+                        <div class="username">@Blooddonation0044</div>
+                      </div>
+                    </div>
+                    <div class="about">500+ Followers</div>
+                  </div>
+                </div>
+                <div class="text">
+                  <a class="icon" href="https://x.com/NithinS1580858">
+                    <div class="layer">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span class="twitterSVG">
+                        <svg
+                          viewBox="0 0 48 48"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill="#1DA1F2"
+                            d="M24 0C10.7 0 0 10.7 0 24s10.7 24 24 24 24-10.7 24-24S37.3 0 24 0zm11.2 18.1c.2 4.5-3.1 9.6-8.9 9.6-1.8 0-3.5-.5-5-1.3 1.3.2 2.6 0 3.8-.6-1.2-.1-2.3-.8-2.7-1.9.4.1.8.1 1.3.1.5 0 1-.1 1.5-.2-1.4-.3-2.4-1.5-2.4-2.9v-.1c.4.2.9.3 1.4.3-.8-.6-1.4-1.5-1.4-2.6 0-.6.2-1.2.5-1.7 1.6 2 4 3.3 6.7 3.5-.1-.3-.1-.6-.1-.9 0-1.7 1.4-3 3-3 .9 0 1.7.4 2.3 1 .7-.1 1.4-.4 2-.7-.2.7-.7 1.3-1.4 1.6.6-.1 1.2-.2 1.7-.5-.4.6-.9 1.1-1.5 1.5z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="text">Twitter</div>
+                  </a>
+                </div>
+              </div>
+              <div class="tooltip-container">
+                <div class="tooltip">
+                  <div class="profile">
+                    <div class="user">
+                      <div class="img">Gm</div>
+                      <div class="details">
+                        <div class="name">Blood donation saves lifes</div>
+                        <div class="username">blooddonationsaveslives@gmail.com</div>
+                      </div>
+                    </div>
+                    <div class="about">500+ Emails</div>
+                  </div>
+                </div>
+                <div class="text">
+                  <a class="icon" href="blooddonationsaveslives@gmail.com">
+                    <div class="layer">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span class="gmailSVG">
+                        <svg
+                          viewBox="0 0 48 48"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill="#EA4335"
+                            d="M24 0C10.7 0 0 10.7 0 24s10.7 24 24 24 24-10.7 24-24S37.3 0 24 0zm11.2 30.3H33c-1.6 0-3.1-.6-4.2-1.7-1.1-1.1-1.7-2.6-1.7-4.2V23.5h-4.6v.9c0 1.6-.6 3.1-1.7 4.2-1.1 1.1-2.6 1.7-4.2 1.7H12.8v4.2h11.2v4.2c1.6 0 3.1-.6 4.2-1.7 1.1-1.1 1.7-2.6 1.7-4.2v-4.2h4.6V30.3zm0-6.6H26.4v-4.2h4.6v-4.2c1.6 0 3.1-.6 4.2-1.7 1.1-1.1 1.7-2.6 1.7-4.2v-.9h-4.6v.9c0 1.6-.6 3.1-1.7 4.2-1.1 1.1-2.6 1.7-4.2 1.7h-4.6v-4.2h11.2V12.8H26.4c-1.6 0-3.1.6-4.2 1.7-1.1 1.1-1.7 2.6-1.7 4.2v4.2H12.8v-4.2c0-1.6.6-3.1 1.7-4.2 1.1-1.1 2.6-1.7 4.2-1.7h11.2v-4.2H12.8C11.2 7.2 9.7 7.8 8.6 8.9c-1.1 1.1-1.7 2.6-1.7 4.2V33c0 1.6.6 3.1 1.7 4.2 1.1 1.1 2.6 1.7 4.2 1.7h22.4c1.6 0 3.1-.6 4.2-1.7 1.1-1.1 1.7-2.6 1.7-4.2V19.7c0-1.6-.6-3.1-1.7-4.2-1.1-1.1-2.6-1.7-4.2-1.7z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                    <div class="text">Gmail</div>
+                  </a>
+                </div>
+              </div>
+              
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Blood Donation. All rights reserved.</p>
+    </footer>
+    <script >document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log(`Anchor clicked: ${this.getAttribute('href')}`);
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                console.warn(`Target not found for href: ${this.getAttribute('href')}`);
+            }
+        });
+    });
+    
+    const backgrounds = [
+    '{{ url_for("static", filename="images/BACKGROUND1.jpg") }}',
+];
+    let currentBackgroundIndex = 0;
+    
+    function changeBackground() {
+        currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.backgroundImage = `url(${backgrounds[currentBackgroundIndex]})`;
+        });
+    }
+    
+    setInterval(changeBackground, 5000);
+    changeBackground(); // Initial call to set the first background
+    </script>
+</body>
+</html>

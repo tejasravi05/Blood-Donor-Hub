@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger - Find All Compatible Donors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            /* Add header styles */
+        }
+
+        .section {
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .section:hover {
+            background-color: #f1f1f1;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+        }
+
+        .input-field {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            max-width: 400px;
+            border: 2px solid red;
+            border-radius: 4px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: BLACK;
+            box-shadow: 0 0 8px rgba(12, 15, 19, 0.5);
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            background-color: red;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: RED;
+            transform: scale(1.05);
+        }
+
+        .donor-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        .donor-table th, .donor-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+
+        .donor-table th {
+            background-color: black;
+            color: #fff;
+        }
+
+        .donor-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: red;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+            <div class="loader-container">
+                <span class="loader1"></span>
+                <div class="loader">
+                    <span>Blood❤️Donation</span>
+                    <span>Blood❤️Donation</span>
+                </div>
+                <div class="loading">
+                    <svg height="48px" width="64px">
+                        <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                      <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                    </svg>
+                  </div>
+            </div>
+            <div class="navigation-container">
+                <nav>
+                    <ul>
+                        <a href="{{ url_for('base') }}" class="button">
+                            <div class="button-box">
+                                <span class="button-elem">
+                                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span class="button-elem">
+                                    <svg viewBox="0 0 46 40">
+                                        <path
+                                            d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                    </ul>
+                </nav>
+            </div>
+        
+    </header>
+
+    <section id="find_donors" class="section">
+        <center>
+            <h1 style="color:black">Find All Compatible Donors</h1>
+            <form method="post" action="{{ url_for('find_donors') }}" class="form-container">
+                <input type="text" name="blood_group" placeholder="Enter Blood Group" required class="input-field">
+                <button type="submit" class="submit-button">Find</button>
+            </form>
+            {% if donors %}
+            <table class="donor-table" style="color:black">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Blood Group</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donor in donors %}
+                    <tr>
+                        <td>{{ donor[1] }}</td>
+                        <td>{{ donor[2] }}</td>
+                        <td>{{ donor[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p style="color:black">No donors found for the specified blood group.</p>
+            {% endif %}
+        </center>
+    </section>
+    
+    <footer>
+        <p>© 2024 Blood Donation. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add any interactive JS code here if needed
+        });
+    </script>
+</body>
+</html>

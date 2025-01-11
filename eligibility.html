@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger- home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="loader-container">
+            <span class="loader1"></span>
+            <div class="loader">
+                <span>Blood❤️Donation</span>
+                <span>Blood❤️Donation</span>
+            </div>
+            <div class="loading">
+                <svg height="48px" width="64px">
+                    <polyline id="back" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                  <polyline id="front" points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24"></polyline>
+                </svg>
+              </div>
+        </div>
+        <div class="navigation-container">
+            <nav>
+                <ul>
+                    <a href="{{ url_for('base') }}" class="button">
+                        <div class="button-box">
+                            <span class="button-elem">
+                                <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <span class="button-elem">
+                                <svg viewBox="0 0 46 40">
+                                    <path
+                                        d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z">
+                                    </path>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<section id="eligibility" class="section">
+   
+    <center>
+    <form method="post" action="{{ url_for('check_eligibility') }}" class="form_main">
+        <p class="heading">Check Eligibility</p>
+
+        <div class="inputContainer inline-inputs">
+            <input type="text" class="inputField" name="name" placeholder="Name" required>
+            <input type="number" class="inputField" name="age" placeholder="Age" required min="18">
+            <select name="blood_group" class="inputField" required>
+                <option value="" selected disabled>Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+
+        <div class="inputContainer inline-inputs">
+            <input type="text" class="inputField" name="haemoglobin" placeholder="Haemoglobin (g/Dl)" required>
+            <input type="text" class="inputField" name="pulse" placeholder="Pulse (per minute)" required>
+        </div>
+
+        <div class="inputContainer inline-inputs">
+            
+            <input type="text" class="inputField" name="systolic_bp" placeholder="Systolic BP" required>
+            <input type="text" class="inputField" name="diastolic_bp" placeholder="Diastolic BP" required>
+        </div>
+        <div class="inputContainer inline-inputs">
+            <input type="text" class="inputField" name="temperature" placeholder="Temperature (°C)" required>
+            <input type="text" class="inputField" name="weight" placeholder="Weight (Kg)" required>
+        </div>
+        <button type="submit" id="button">Check Eligibility</button>
+    </form>
+    </center>
+</section>
+<footer>
+    <p>© 2024 Blood Donation. All rights reserved.</p>
+</footer>
+<script>document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log(`Anchor clicked: ${this.getAttribute('href')}`);
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        } else {
+            console.warn(`Target not found for href: ${this.getAttribute('href')}`);
+        }
+    });
+});
+
+const backgrounds = [
+    '{{ url_for("static", filename="images/BACKGROUND3.jpeg") }}',
+    
+];
+let currentBackgroundIndex = 0;
+
+function changeBackground() {
+    currentBackgroundIndex = (currentBackgroundIndex + 1) % backgrounds.length;
+    document.querySelectorAll('.section').forEach(section => {
+        section.style.backgroundImage =` url(${backgrounds[currentBackgroundIndex]})`;
+    });
+}
+
+setInterval(changeBackground, 5000);
+changeBackground(); // Initial call to set the first background</script>
+</body>
+</html>
